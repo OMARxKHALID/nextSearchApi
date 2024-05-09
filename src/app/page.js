@@ -62,7 +62,7 @@ export default function Home() {
           <Button size="sm" onClick={handleOpen}>
             Search
           </Button>{" "}
-          & Type a query and get your results in milliseconds.
+          <br />& Type a query and get your results in milliseconds.
         </p>
 
         <div className="w-full">
