@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/command";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
@@ -28,6 +29,10 @@ export default function Home() {
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
+
+  const handleOpen = () => {
+    setOpen((open) => !open);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,9 +56,13 @@ export default function Home() {
           A high-performance API built with Hono, Next.js and Cloudflare. <br />{" "}
           Press{" "}
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-            <span className="text-xs">⌘</span>J
+            <span className="text-xl">⌘ J</span>
           </kbd>{" "}
-          & Type a query and get your results in miliseconds.
+          or Press the button{" "}
+          <Button size="sm" onClick={handleOpen}>
+            Search
+          </Button>{" "}
+          & Type a query and get your results in milliseconds.
         </p>
 
         <div className="w-full">
